@@ -1,0 +1,161 @@
+package com.example.aletheia.pages.campaignpage
+
+
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+
+import androidx.navigation.NavController
+
+
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.ui.zIndex
+
+
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
+import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.snapshotFlow
+import com.example.aletheia.AletheiaTheme
+import com.example.aletheia.ThemeViewModel
+import com.example.aletheia.pages.homepage.LoadingScreen
+import com.example.aletheia.viewmodels.GetCampaigns
+import com.example.aletheia.viewmodels.GetPages
+
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun CampaignPage(getCampaignsModel: GetCampaigns, navcontroller: NavController, getPages: GetPages, themeViewModel: ThemeViewModel, username: String) {
+    val context = LocalContext.current
+    var loading by remember { mutableStateOf(true) }
+    val showPromptCard by getCampaignsModel.show.collectAsState()
+    val NumberOfReponses = "5" //constante ou variable? à voir
+    // Ta liste d'items
+    LaunchedEffect(Unit) {
+        getCampaignsModel.loadMorePages()
+    }
+    val pages by getCampaignsModel.pages.collectAsState()
+
+    val expandedStates = remember { mutableStateMapOf<String, Boolean>() }
+    val listState = rememberLazyListState()
+    val isRefreshing by getCampaignsModel.isRefreshing.collectAsState()
+    val refreshState = rememberPullToRefreshState()
+
+    // Détecter si on a atteint le bas de la liste
+    LaunchedEffect(listState) {
+        snapshotFlow { listState.layoutInfo.visibleItemsInfo }
+            .collect { visibleItems ->
+                val lastVisibleItem = visibleItems.lastOrNull()
+                if (lastVisibleItem != null && lastVisibleItem.index == listState.layoutInfo.totalItemsCount - 1) {
+                    getCampaignsModel.loadMorePages() // Charger plus de contenu
+                }
+            }
+    }
+
+    var expandedItemId by remember { mutableStateOf<String?>(null) }
+
+
+
+    val isDarkTheme by themeViewModel.isDarkTheme.collectAsState()
+
+    AletheiaTheme(themeViewModel, darkTheme = isDarkTheme) {
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Box(modifier = Modifier.zIndex(2f)) {
+                CampaignPageTopBar(getCampaignsModel, themeViewModel, username)
+            }
+
+            AnimatedVisibility(
+                modifier = Modifier.zIndex(0f),
+                visible = showPromptCard,
+                enter = slideInVertically(initialOffsetY = { -it }) + fadeIn(),
+                exit = slideOutVertically(targetOffsetY = { -it }) + fadeOut()
+            ) {
+                PromptCard(
+                    getCampaignsModel,
+                    NumberOfReponses,
+                    themeViewModel
+                )
+            }
+            if (!showPromptCard) {
+                PullToRefreshBox(
+                    isRefreshing = isRefreshing,
+                    onRefresh = {
+                        getCampaignsModel.refreshData()
+                    },
+                    state = refreshState,
+                    indicator = {
+                        Indicator(
+                            modifier = Modifier.align(Alignment.TopCenter),
+                            isRefreshing = isRefreshing,
+                            state = refreshState,
+                            color = MaterialTheme.colorScheme.primary,
+                            containerColor = MaterialTheme.colorScheme.background
+                        )
+                    }
+                ) {
+                    if (loading) {
+                        LoadingScreen(themeViewModel)
+                    }
+                    LazyColumn(
+                        state = listState,
+                        modifier = Modifier.padding(bottom = 85.dp),
+                        contentPadding = PaddingValues(bottom = 50.dp, top = 8.dp)
+                    ) {
+                        items(pages) { item ->
+                            val campaignId = item.getOrNull(0) ?: "Unknown" // Utiliser un ID unique
+
+                            SwipeableOption(
+                                navcontroller,
+                                getPages,
+                                getCampaignsModel,
+                                themeViewModel,
+                                item,
+                                isExpanded = expandedItemId == campaignId,
+                                onExpand = {
+                                    expandedItemId = if (expandedItemId == campaignId) null else campaignId
+                                },
+                                onSwipe = {
+                                    getCampaignsModel.addSavedPage(item)
+                                }
+                            )
+                            loading = false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+

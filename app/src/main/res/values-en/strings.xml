@@ -1,0 +1,133 @@
+<resources>
+    <string name="commencer" translatable="true">Begin</string>
+    <string name="se_connecter" translatable="true">Log in</string>
+    <string name="s_inscrire" translatable="true">Sign up</string>
+    <string name="bienvenue" translatable="true">Welcome</string>
+    <string name="nom_utilisateur" translatable="true">Username</string>
+    <string name="mot_de_passe" translatable="true">Password</string>
+    <string name="adresse_mail" translatable="true">Email address</string>
+    <string name="prénom" translatable="true">First name</string>
+    <string name="nom_de_famille" translatable="true">Last name</string>
+    <string name="âge" translatable="true">Age</string>
+    <string name="retour" translatable="true">Back</string>
+    <string name="suivant" translatable="true">Next</string>
+    <string name="créer_un_compte" translatable="true">Create account</string>
+    <string name="conditions_utilisation" translatable="true">Accept terms and conditions</string>
+    <string name="infos_manquantes" translatable="true">Missing information.</string>
+    <string name="nom_util_existe" translatable="true">Username already taken, please choose another.</string>
+    <string name="err_reseau" translatable="true">Network connection failed.</string>
+    <string name="util_existe" translatable="true">User already exists, please log in.</string>
+    <string name="découvrir" translatable="true">Discover</string>
+    <string name="commencez_maintenant" translatable="true">Start now</string>
+    <string name="s_identifier" translatable="true">Log in</string>
+    <string name="util_incorrect" translatable="true">Incorrect username, please sign up.</string>
+    <string name="mdp_incorrect" translatable="true">Incorrect password.</string>
+    <string name="deconnexion" translatable="true">Log out</string>
+    <string name="deconnexion_alerte" translatable="true">Are you sure you want to log out ?</string>
+    <string name="annuler" translatable="true">Cancel</string>
+    <string name="confirmer" translatable="true">Confirm</string>
+    <string name="envoyer_msg_a" translatable="true">Send a message to </string>
+    <string name="mes_campagnes" translatable="true">My campaigns</string>
+
+
+    <string name="rechercher" translatable="true">Search</string>
+    <string name="nom_modele" translatable="true">Model name</string>
+
+    <string name="preferences" translatable="true">Preferences</string>
+    <string name="theme_sombre" translatable="true">Dark theme</string>
+    <string name="theme_clair" translatable="true">Light theme</string>
+
+    <string name="new_chat_ia" translatable="true">Let your imagination guide you,</string>
+    <string name="intro_first_model" translatable="true">Here is Meta Llama 3.1, your first AI model. Try it now!</string>
+
+    <string name="bonjour" translatable="true">Hello</string>
+    <string name="theme_systeme" translatable="true">System theme</string>
+    <string name="copier" translatable="true">Copy</string>
+    <string name="réessayer" translatable="true">Retry</string>
+    <string name="partager" translatable="true">Share</string>
+    <string name="sélectionner" translatable="true">Select</string>
+    <string name="campagnes" translatable="true">Campaigns</string>
+    <string name="theme" translatable="true">Theme</string>
+    <string name="infocampagne" translatable="true">This campaign is of type</string>
+    <string name="rewardcampaign" translatable="true">Reward per data point created.</string>
+    <string name="datacampaign" translatable="true">Total number of data points required for this campaign.</string>
+    <string name="expliquersupervisedlearning" translatable="true">You will interact with an AI model to evaluate its responses.</string>
+    <string name="associatedcontentcampaign" translatable="true">AI generated content is associated with this campaign.</string>
+    <string name="yourprompt" translatable="true">Your prompt</string>
+    <string name="compte_bloqué" translatable="true">You have reached the limit, please try again later.</string>
+    <string name="date_de_naissance" translatable="true">Date of birth</string>
+    <string name="email_invalide" translatable="true">Invalid email address.</string>
+    <string name="aucun_contenu" translatable="true">Nothing yet</string>
+    <string name="cherchersettings" translatable="true">Search preferences</string>
+    <string name="retour_haptique" translatable="true">Haptic feedback</string>
+    <string name="haptique_on" translatable="true">Haptic feedback toggled on</string>
+    <string name="haptique_off" translatable="true">Haptic feedback toggled off</string>
+    <string name="post" translatable="true">Post</string>
+    <string name="texte" translatable="true">Text</string>
+    <string name="images" translatable="true">Images</string>
+    <string name="videos" translatable="true">Videos</string>
+    <string name="type_de_contenu" translatable="true">Let\'s add a new model to create...</string>
+    <string name="info_contenu" translatable="true"> You cannot post text content. LLMs are only used as agents on the app. </string>
+    <string name="ajouté" translatable="true">added</string>
+    <string name="modele_suppr" translatable="true">Model deleted</string>
+    <string name="supprimer_modele" translatable="true">Delete model</string>
+    <string name="erreur_de_connexion" translatable="true">Network error. Please refresh the page.</string>
+    <string name="aucune_donnee" translatable="true">No data available at the moment. Please try again later.</string>
+    <string name="pas_de_co" translatable="true">Please check your internet connection or seek information about the state of our servers. Don\'t give up</string>
+    <string name="espace_username">Invalid format, spaces are not allowed.</string>
+    <string name="err_ai">An error occurred while generating your response. Please try again.</string>
+    <string name="assistant_ia">Creative assistant</string>
+    <string name="assistant_on">Assistant enabled</string>
+    <string name="assistant_off">Assistant disabled</string>
+    <string name="custom_prompt">Home tips</string>
+    <string name="assistant_model">Model</string>
+    <string name="valider">Commit</string>
+    <string name="no_models">No model available. Please try again later.</string>
+    <string name="chercherchats">Search</string>
+    <string name="editprofile">Edit profile</string>
+    <string name="about">about</string>
+    <string name="custom_prompt_about">You want tips about...</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="supprimer_alerte">Are you sure you want to permanentely delete this chat?</string>
+    <string name="warning_suppr_modele">Are you sure you want to delete this model and all the history of your interaction with it in a permanent way ?</string>
+    <string name="seulement_un_modele">You currently have only one text model, used as your assistant model. Discover the other models in the creation page.</string>
+    <string name="add_caption">Add caption</string>
+    <string name="see_prompt">See prompt</string>
+    <string name="posted">Content posted!</string>
+    <string name="warning_post">Do you want to share the history of your conversation with this model in order to give users more context and a better opportunity to interact with your post ?</string>
+    <string name="annuler_post">Only share this content</string>
+    <string name="confirmer_post">Share my history</string>
+    <string name="post_history">More context</string>
+    <string name="nocaptionyet">No caption yet...</string>
+    <string name="nofilter">All content</string>
+    <string name="more">more</string>
+    <string name="less">less</string>
+    <string name="ok">Ok</string>
+    <string name="chat_deletion">You are about to permanentely delete your chat and the response it generated. Do you want to proceed?</string>
+    <string name="choose_audio">Choose audio</string>
+    <string name="attente_de_co">Waiting for network...</string>
+    <string name="posts">Posts</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="edit_profilepic">Edit profile picture</string>
+    <string name="edit_name">Edit name</string>
+    <string name="edit_bio">Edit biography</string>
+    <string name="followed">Followed</string>
+    <string name="unfollowed">Unfollowed</string>
+    <string name="speakto">Speak to</string>
+    <string name="follow">Follow</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="voice">Voices</string>
+    <string name="use">Use</string>
+    <string name="used">Current</string>
+    <string name="audioPrompt">Describe the tone, pacing, emotions, pronunciation and other affects you want to give to your voice.</string>
+    <string name="downloaded">Image saved</string>
+    <string name="prompt">Prompt</string>
+    <string name="comment">Comments</string>
+    <string name="sendto">Send to...</string>
+    <string name="save">Save</string>
+    <string name="saved">Saved</string>
+
+
+</resources>

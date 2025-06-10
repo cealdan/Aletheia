@@ -1,0 +1,137 @@
+<resources>
+    <string name="app_name" translatable="false">Aletheia</string>
+    <string name="commencer" translatable="true">Commencer</string>
+    <string name="se_connecter" translatable="true">Se connecter</string>
+    <string name="s_inscrire" translatable="true">S\'inscrire</string>
+    <string name="bienvenue" translatable="true">Bienvenue</string>
+    <string name="nom_utilisateur" translatable="true">Nom d\'utilisateur</string>"
+    <string name="mot_de_passe" translatable="true">Mot de passe</string>
+    <string name="adresse_mail" translatable="true">Adresse email</string>
+    <string name="prénom" translatable="true">Prénom</string>
+    <string name="nom_de_famille" translatable="true">Nom de famille</string>
+    <string name="âge" translatable="true">Âge</string>
+    <string name="retour" translatable="true">Retour</string>
+    <string name="suivant" translatable="true">Suivant</string>
+    <string name="créer_un_compte" translatable="true">Créer un compte</string>"
+    <string name="conditions_utilisation" translatable="true">Accepter les conditions d\'utilisation</string>
+    <string name="infos_manquantes" translatable="true">Des informations sont manquantes.</string>
+    <string name="nom_util_existe" translatable="true">Nom d\'utilisateur déjà pris, veuillez en choisir un autre.</string>
+    <string name="err_reseau" translatable="true">Connexion au réseau impossible.</string>
+    <string name="util_existe" translatable="true">Utilisateur déjà existant, veuillez vous connecter.</string>
+    <string name="découvrir" translatable="true">Découvrir</string>
+    <string name="commencez_maintenant" translatable="true">Commencez maintenant</string>
+    <string name="s_identifier" translatable="true">S\'identifier</string>
+    <string name="util_incorrect" translatable="true">Nom d\'utilisateur incorrect, veuillez vous inscrire.</string>
+    <string name="mdp_incorrect" translatable="true">Mot de passe incorrect.</string>
+    <string name="deconnexion" translatable="true">Déconnexion</string>
+    <string name="deconnexion_alerte" translatable="true">Êtes-vous sûr de vouloir vous déconnecter ?</string>
+    <string name="annuler" translatable="true">Annuler</string>
+    <string name="confirmer" translatable="true">Confirmer</string>
+    <string name="envoyer_msg_a" translatable="true">Envoyer un message à </string>
+    <string name="mes_campagnes" translatable="true">Mes campagnes</string>
+
+
+    <string name="rechercher" translatable="true">Rechercher</string>
+    <string name="nom_modele" translatable="true">Nom du modèle</string>
+
+    <string name="preferences" translatable="true">Préférences</string>
+    <string name="theme_sombre" translatable="true">Thème sombre</string>
+    <string name="theme_clair" translatable="true">Thème clair</string>
+
+    <string name="new_chat_ia" translatable="true">Laissez-vous guider par votre imagination,</string>
+    <string name="intro_first_model" translatable="true">Voici Meta Llama 3.1, votre premier modèle. Essayez-le maintenant !</string>
+
+    <string name="bonjour" translatable="true">Bonjour</string>
+    <string name="theme_systeme" translatable="true">Thème système</string>
+    <string name="copier" translatable="true">Copier</string>
+    <string name="réessayer" translatable="true">Réessayer</string>
+    <string name="partager" translatable="true">Partager</string>
+    <string name="sélectionner" translatable="true">Sélectionner</string>
+    <string name="campagnes" translatable="true">Campagnes</string>
+    <string name="theme" translatable="true">Thème</string>
+    <string name="infocampagne" translatable="true">Cette campagne est une campagne de</string>
+    <string name="rewardcampaign" translatable="true">Valeur de la récompense par donnée créée.</string>
+    <string name="datacampaign" translatable="true">Nombre total de données requises pour cette campagne.</string>
+    <string name="expliquersupervisedlearning" translatable="true">Vous allez interagir avec une intelligence artificielle afin d\'évaluer la qualité de ses réponses.</string>
+    <string name="associatedcontentcampaign" translatable="true">Du contenu généré par IA est associé à cette campagne.</string>
+
+    <string name="yourprompt" translatable="true">Votre prompt</string>
+    <string name="compte_bloqué" translatable="true">Vous avez atteint la limite, veuillez réessayer plus tard.</string>
+
+    <string name="date_de_naissance" translatable="true">Date de naissance</string>
+    <string name="email_invalide" translatable="true">Adresse email invalide.</string>
+    <string name="aucun_contenu" translatable="true">Rien pour l\'instant</string>
+    <string name="cherchersettings" translatable="true">Parcourir les préférences</string>
+
+    <string name="retour_haptique" translatable="true">Retour haptique</string>"
+    <string name="haptique_on" translatable="true">Retour haptique activé</string>
+    <string name="haptique_off" translatable="true">Retour haptique désactivé</string>"
+    <string name="post" translatable="true">Publier</string>
+    <string name="texte" translatable="true">Texte</string>
+    <string name="images" translatable="true">Images</string>
+    <string name="videos" translatable="true">Vidéos</string>
+    <string name="type_de_contenu" translatable="true">Ajoutons un nouveau modèle pour créer...</string>
+    <string name="info_contenu" translatable="true"> Vous ne pouvez pas poster de contenu textuel. Les LLMs sont seulement utilisés en tant qu\'agents. </string>
+    <string name="ajouté" translatable="true">ajouté</string>
+    <string name="modele_suppr" translatable="true">Modèle supprimé</string>
+    <string name="supprimer_modele" translatable="true">Supprimer le modèle</string>
+
+    <string name="erreur_de_connexion" translatable="true">Erreur de connexion. Veuillez rafraîchir la page.</string>
+    <string name="aucune_donnee" translatable="true">Aucune donnée disponible pour le moment. Veuillez réessayer plus tard.</string>
+    <string name="pas_de_co" translatable="true">Veuillez vérifier votre connexion internet ou vous renseigner sur l\'état de nos serveurs. N\'abandonnez pas</string>
+    <string name="espace_username">Format invalide, les espaces ne sont pas autorisés.</string>
+    <string name="err_ai">Une erreur est survenu en générant votre réponse. Veuillez réessayer.</string>
+    <string name="assistant_ia">Assistant créatif</string>
+    <string name="assistant_on">Assistant actif</string>
+    <string name="assistant_off">Assistant inactif</string>
+    <string name="custom_prompt">Astuces de bienvenue</string>
+    <string name="assistant_model">Modèle</string>
+    <string name="valider">Valider</string>
+    <string name="no_models">Aucun modèle disponible. Veuillez réessayer plus tard.</string>
+    <string name="chercherchats">Parcourir</string>
+    <string name="editprofile">Modifier le profil</string>
+    <string name="about">à propos de</string>
+    <string name="custom_prompt_about">Vous voulez des astuces à propos de...</string>
+    <string name="delete">Supprimer</string>
+    <string name="edit">Modifier</string>
+    <string name="supprimer_alerte">Êtes-vous sûr de vouloir supprimer définitivement cette conversation ?</string>
+    <string name="warning_suppr_modele">Êtes-vous sûr de vouloir supprimer ce modèle et tout l\'historique de votre interaction avec celui-ci de façon permanente ?</string>
+    <string name="seulement_un_modele">Vous n\'avez actuellement qu\'un seul modèle textuel, utilisé comme modèle par défaut pour votre assistant. Découvrez les autres modèles dans la page de création.</string>
+    <string name="add_caption">Ajouter une légende</string>
+    <string name="see_prompt">Voir le prompt</string>
+    <string name="posted">Contenu publié!</string>
+    <string name="warning_post">Souhaitez-vous partager l\'historique de votre conversation avec ce modèle afin que les autres utilisateurs puissent avoir davantage de contexte et une meilleure opportunité d\'interagir avec votre publication ?</string>
+    <string name="annuler_post">Ne partager que ce contenu</string>
+    <string name="confirmer_post">Partager mon historique</string>
+    <string name="post_history">Plus de contexte</string>
+    <string name="nocaptionyet">Aucune légende pour le moment...</string>
+    <string name="nofilter">Tous les contenus</string>
+    <string name="more">plus</string>
+    <string name="less">moins</string>
+    <string name="ok">Ok</string>
+    <string name="chat_deletion">Vous êtes sur le point de supprimer définitivement votre message et la réponse qu\'il a généré. Souhaitez-vous continuer ?</string>
+    <string name="choose_audio">Choisir un audio</string>
+    <string name="attente_de_co">En attente du réseau...</string>
+    <string name="posts">Publications</string>
+    <string name="followers">Abonnés</string>
+    <string name="following">Abonnements</string>
+    <string name="edit_profilepic">Modifier la photo de profil</string>
+    <string name="edit_name">Modifier le nom</string>
+    <string name="edit_bio">Modifier la biographie</string>
+    <string name="followed">Abonné à</string>
+    <string name="unfollowed">Désabonné de</string>
+    <string name="speakto">Parlez à</string>
+    <string name="follow">Suivre</string>
+    <string name="unfollow">Ne plus suivre</string>
+    <string name="voice">Voix</string>
+    <string name="use">Utiliser</string>
+    <string name="used">En cours</string>
+    <string name="audioPrompt">Décrivez le ton, la cadence, les émotions, la prononciation et les autres effets que vous voulez donner à votre voix.</string>
+    <string name="downloaded">Image sauvegardée</string>
+    <string name="prompt">Prompt</string>
+    <string name="comment">Commentaires</string>
+    <string name="sendto">Envoyer à...</string>
+    <string name="save">Enregistrer</string>
+    <string name="saved">Enregistré</string>
+
+</resources>

@@ -1,0 +1,182 @@
+package com.example.aletheia.viewmodels
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+
+import android.content.Context
+import android.util.Log
+import androidx.lifecycle.ViewModelProvider
+import com.example.aletheia.RetrofitInstance
+import com.example.aletheia.SQL
+import kotlinx.coroutines.delay
+
+class GetCampaigns(context: Context, username: String) : ViewModel() {
+
+    private val sharedPreferences = context.getSharedPreferences("getCampaignsPrefs::$username", Context.MODE_PRIVATE)
+    val globalpref = context.getSharedPreferences(username, Context.MODE_PRIVATE)
+
+    private val _pages = MutableStateFlow<List<List<String>>>(listOf())
+    val pages: StateFlow<List<List<String>>> = _pages
+
+    private val _savedPages = MutableStateFlow<List<List<String>>>(getSavedPagesFromPrefs())
+    val savedPages: StateFlow<List<List<String>>> = _savedPages
+
+    private val _nameOfCurrentCampaign = MutableStateFlow<String>("")
+    val nameOfCurrentCampaign: StateFlow<String> = _nameOfCurrentCampaign
+
+    fun setNameOfCurrentCampaign(name: String) {
+        _nameOfCurrentCampaign.value = name
+    }
+
+    var nextPageIndex = MutableStateFlow(1)  // Index pour charger la suite
+
+    private fun getSavedPagesFromPrefs(): List<List<String>> {
+        val invisiblePagesString = sharedPreferences.getString("invisiblePages", "")
+        return if (!invisiblePagesString.isNullOrEmpty()) {
+            invisiblePagesString.split("\n").map { it.split(",") }
+        } else {
+            emptyList()
+        }
+    }
+
+    private fun saveSavedPagesToPrefs() {
+        val invisiblePagesString = _savedPages.value.joinToString("\n") { it.joinToString(",") }
+        sharedPreferences.edit().putString("invisiblePages", invisiblePagesString).apply()
+    }
+
+    fun addSavedPage(page: List<String>) {
+        if (_savedPages.value.contains(page)) return
+        _savedPages.value += listOf(page)
+        _pages.value = _pages.value.filter { it != page }
+        saveSavedPagesToPrefs() // Sauvegarde après ajout
+    }
+
+    fun getSavedPages(): List<List<String>> {
+        return _savedPages.value
+    }
+/*
+    private fun getPagesFromPrefs(): List<List<String>> {
+        val pagesString = sharedPreferences.getString("pages", "")
+        return if (!pagesString.isNullOrEmpty()) {
+            pagesString.split("\n").map { it.split(",") }
+        } else {
+            emptyList()
+        }
+    }
+
+
+
+    private fun savePagesToPrefs() {
+        val pagesString = _pages.value.joinToString("\n") { it.joinToString(",") }
+        sharedPreferences.edit().putString("pages", pagesString).apply()
+    }
+
+ */
+
+    val _contentID = MutableStateFlow<String>("")
+    val contentID: StateFlow<String> = _contentID
+
+
+
+    fun clearContentID() {
+        _contentID.value = ""
+    }
+
+    fun goContent(contentID: String) {
+        Log.d("GetCampaigns", "goContent: $contentID")
+        _contentID.value = contentID
+    }
+
+
+    private val _show = MutableStateFlow(false)
+    val show: StateFlow<Boolean> = _show
+
+    fun toggleShow() {
+        _show.value = !_show.value
+    }
+
+    private val _profileShow = MutableStateFlow(false)
+    val profileShow: StateFlow<Boolean> = _profileShow
+
+    fun toggleProfileShow() {
+        _profileShow.value = !_profileShow.value
+    }
+
+
+    @Volatile private var isLoading = false
+
+
+    private val _isRefreshing = MutableStateFlow(false)
+    val isRefreshing: StateFlow<Boolean> = _isRefreshing
+
+
+    fun refreshData() {
+        viewModelScope.launch {
+            _isRefreshing.value = true
+            _pages.value = listOf()
+            loadMorePages()
+            delay(300)
+            _isRefreshing.value = false
+        }
+    }
+
+    fun loadMorePages() {
+        if (isLoading) return
+        isLoading = true
+
+        viewModelScope.launch {
+            try {
+                globalpref.edit().putBoolean("networkAvailable", true).apply()
+
+                val newPages = mutableListOf<List<String>>()
+                var i = nextPageIndex.value
+                var count = 0
+                var failCount = 0  // Compteur d'échecs
+
+                while (count < 10 && failCount < 10) {  // Charge 10 pages max, stoppe si 10 échecs
+                    val isCampaignActive = RetrofitInstance.api.isUser(SQL().isInCampaigns(i)) == "1"
+
+                    if (isCampaignActive) {
+                        val newPage = RetrofitInstance.api.getLine(SQL().getCampaign(i))
+
+                        if (!_pages.value.contains(newPage)) {
+                            newPages.add(newPage)
+                            count++
+                        }
+                        failCount = 0  // Réinitialise le compteur d'échecs si une campagne est trouvée
+                    } else {
+                        failCount++  // Incrémente si aucune campagne active
+                    }
+                    i++
+                }
+
+                if (newPages.isNotEmpty()) {
+                    _pages.value += newPages
+                    nextPageIndex.value = i  // Met à jour l'index pour le prochain chargement
+                } else if (failCount >= 10) {
+                    // Si 10 échecs d'affilée, on recommence depuis 0
+                    nextPageIndex.value = 0
+                    loadMorePages() // Relance immédiatement le chargement
+                }
+                isLoading = false
+
+            } catch (e: Exception) {
+                Log.d("GetCampaigns", "Erreur lors du chargement des pages : $e")
+                globalpref.edit().putBoolean("networkAvailable", false).apply()
+            }
+        }
+    }
+
+}
+
+class GetCampaignsViewModelFactory(private val context: Context, private val username: String) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(GetCampaigns::class.java)) {
+            return GetCampaigns(context, username) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}

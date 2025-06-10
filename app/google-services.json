@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "790368323693",
+    "project_id": "aletheiafirebase",
+    "storage_bucket": "aletheiafirebase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790368323693:android:8f64a771b370bc1721d764",
+        "android_client_info": {
+          "package_name": "com.example.aletheia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAxPbzDYybzzGhFux0JQVyftvwnTxLmk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

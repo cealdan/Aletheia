@@ -1,0 +1,137 @@
+<resources>
+    <string name="commencer" translatable="true">始める</string>
+    <string name="se_connecter" translatable="true">ログインする</string>
+    <string name="s_inscrire" translatable="true">登録する</string>
+    <string name="bienvenue" translatable="true">ようこそ</string>
+    <string name="nom_utilisateur" translatable="true">ユーザー名</string>"
+    <string name="mot_de_passe" translatable="true">パスワード</string>
+    <string name="adresse_mail" translatable="true">メールアドレス</string>
+    <string name="prénom" translatable="true">名</string>
+    <string name="nom_de_famille" translatable="true">姓</string>
+    <string name="âge" translatable="true">年齢</string>
+    <string name="retour" translatable="true">戻る</string>
+    <string name="suivant" translatable="true">次へ</string>
+    <string name="créer_un_compte" translatable="true">アカウントを作成する</string>"
+    <string name="conditions_utilisation" translatable="true">利用規約に同意する</string>
+    <string name="infos_manquantes" translatable="true">情報が不足しています。</string>
+    <string name="nom_util_existe" translatable="true">ユーザー名は既に使用されています。他の名前を選んでください。</string>
+    <string name="err_reseau" translatable="true">ネットワークに接続できません。</string>
+    <string name="util_existe" translatable="true">既に登録されているユーザーです。ログインしてください。</string>
+    <string name="découvrir" translatable="true">使い方</string>
+    <string name="commencez_maintenant" translatable="true">今すぐ始める</string>
+    <string name="s_identifier" translatable="true">サインインする</string>
+    <string name="util_incorrect" translatable="true">ユーザー名が正しくありません。登録してください。</string>
+    <string name="mdp_incorrect" translatable="true">パスワードが正しくありません。</string>
+    <string name="deconnexion" translatable="true">ログアウト</string>
+    <string name="deconnexion_alerte" translatable="true">本当にログアウトしますか？</string>
+    <string name="annuler" translatable="true">キャンセル</string>
+    <string name="confirmer" translatable="true">確認する</string>
+    <string name="envoyer_msg_a" translatable="true">～にメッセージを送る </string>
+    <string name="mes_campagnes" translatable="true">私の貢献</string>
+
+
+    <string name="rechercher" translatable="true">検索する</string>
+    <string name="nom_modele" translatable="true">モデル名</string>
+
+    <string name="preferences" translatable="true">設定</string>
+    <string name="theme_sombre" translatable="true">ダークテーマ</string>
+    <string name="theme_clair" translatable="true">ライトテーマ</string>
+    <string name="new_chat_ia" translatable="true">何を作成する？</string>
+    <string name="intro_first_model" translatable="true">こちらはパーソナルアシスタントのピュティアです。</string> //à modifier
+
+    <string name="bonjour" translatable="true">こんにちは</string>
+
+    <string name="theme_systeme" translatable="true">システムテーマ</string>
+    <string name="copier" translatable="true">コピーする</string>
+    <string name="réessayer" translatable="true">再試行する</string>
+    <string name="partager" translatable="true">共有する</string>
+    <string name="sélectionner" translatable="true">選択する</string>
+    <string name="campagnes" translatable="true">貢献</string>
+    <string name="theme" translatable="true">テーマ</string>
+
+    <string name="infocampagne" translatable="true">この貢献は</string>
+    <string name="rewardcampaign" translatable="true">タスクごとの報酬が作成されました。</string>
+    <string name="datacampaign" translatable="true">この貢献に必要なデータポイントの合計。</string>
+    <string name="expliquersupervisedlearning" translatable="true">AIモデルの応答を評価するために相互作用します。</string>
+    <string name="associatedcontentcampaign" translatable="true">AIが生成したコンテンツはこの貢献に関連付けられています。</string>
+    <string name="yourprompt" translatable="true">あなたのプロンプト</string>
+    <string name="compte_bloqué" translatable="true">制限を超えており、後でお試しください。</string>
+    <string name="date_de_naissance" translatable="true">誕生日</string>
+    <string name="email_invalide" translatable="true">無効なメールアドレスです。</string>
+    <string name="aucun_contenu" translatable="true">\?</string>
+    <string name="cherchersettings" translatable="true">設定を検索する</string>
+    <string name="retour_haptique" translatable="true">返響</string>
+    <string name="haptique_on" translatable="true">返響が有効化されました</string>
+    <string name="haptique_off" translatable="true">返響が無効化されました</string>
+    <string name="post" translatable="true">投稿する</string>
+
+
+
+    <string name="texte" translatable="true">?</string>
+    <string name="images" translatable="true">?</string>
+    <string name="videos" translatable="true">?</string>
+    <string name="type_de_contenu" translatable="true"> ? </string>
+    <string name="info_contenu" translatable="true"> ? </string>
+    <string name="ajouté" translatable="true">?</string>
+    <string name="modele_suppr" translatable="true">?</string>
+    <string name="supprimer_modele" translatable="true">?</string>
+    <string name="erreur_de_connexion" translatable="true">?</string>
+    <string name="aucune_donnee" translatable="true">?</string>
+    <string name="pas_de_co" translatable="true">?</string>
+    <string name="espace_username">\?</string>
+    <string name="err_ai">\?</string>
+    <string name="assistant_ia">\?</string>
+    <string name="assistant_on">\?</string>
+    <string name="assistant_off">\?</string>
+    <string name="custom_prompt">\?</string>
+    <string name="assistant_model">\?</string>
+    <string name="valider">\?</string>
+    <string name="no_models">\?</string>
+    <string name="chercherchats">\?</string>
+    <string name="editprofile">\?</string>
+    <string name="about">\?</string>
+    <string name="custom_prompt_about">\?</string>
+    <string name="delete">\?</string>
+    <string name="edit">\?</string>
+    <string name="supprimer_alerte">\?</string>
+    <string name="warning_suppr_modele">\?</string>
+    <string name="seulement_un_modele">\?</string>
+    <string name="add_caption">\?</string>
+    <string name="see_prompt">\?</string>
+    <string name="posted">\?</string>
+    <string name="warning_post">\?</string>
+    <string name="annuler_post">\?</string>
+    <string name="confirmer_post">\?</string>
+    <string name="post_history">\?</string>
+    <string name="nocaptionyet">\?</string>
+    <string name="nofilter">\?</string>
+    <string name="more">\?</string>
+    <string name="less">\?</string>
+    <string name="ok">\?</string>
+    <string name="chat_deletion">\?</string>
+    <string name="choose_audio">\?</string>
+    <string name="attente_de_co">\?</string>
+    <string name="posts">\?</string>
+    <string name="followers">\?</string>
+    <string name="following">\?</string>
+    <string name="edit_profilepic">\?</string>
+    <string name="edit_name">\?</string>
+    <string name="edit_bio">\?</string>
+    <string name="followed">\?</string>
+    <string name="unfollowed">\?</string>
+    <string name="speakto">\?</string>
+    <string name="follow">\?</string>
+    <string name="unfollow">\?</string>
+    <string name="voice">\?</string>
+    <string name="use">\?</string>
+    <string name="used">\?</string>
+    <string name="audioPrompt">\?</string>
+    <string name="downloaded">\?</string>
+    <string name="prompt">\?</string>
+    <string name="comment">\?</string>
+    <string name="sendto">\?</string>
+    <string name="save">\?</string>
+    <string name="saved">\?</string>
+
+
+</resources>

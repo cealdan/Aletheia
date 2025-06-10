@@ -1,0 +1,238 @@
+package com.example.aletheia.pages
+
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.view.WindowManager
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
+import androidx.activity.compose.setContent
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.aletheia.AletheiaTheme
+import com.example.aletheia.R
+import com.example.aletheia.ThemeViewModel
+import com.example.aletheia.ThemeViewModelFactory
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
+class Presentation : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val w = window
+        w.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
+
+
+
+        setContent()
+        {
+            PresentationPage()
+        }
+    }
+}
+
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun PresentationPage() {
+    val context = LocalContext.current.applicationContext
+    val pagerState = rememberPagerState(pageCount = {4})
+    val scope = rememberCoroutineScope()
+
+    // Animation du niveau d'opacité
+    val pageAlpha = remember { mutableStateListOf(0f, 0f, 0f, 0f) }
+    val prefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE)
+
+
+    val themeViewModel: ThemeViewModel = viewModel(
+        factory = ThemeViewModelFactory(context, "", isSystemInDarkTheme())
+    )
+
+
+
+    // Appliquer le thème
+    AletheiaTheme(themeViewModel, darkTheme = false) {
+        BackHandler {
+        }
+
+        LaunchedEffect(pagerState.currentPage) {
+            val previousPage = if (pagerState.currentPage > 0) pagerState.currentPage - 1 else 0
+            pageAlpha[previousPage] = 0f
+
+            val nextPage = if (pagerState.currentPage < 3) pagerState.currentPage + 1 else 3
+            pageAlpha[nextPage] = 0f
+
+
+
+            delay(100)
+            pageAlpha[pagerState.currentPage] = 1f
+        }
+        HorizontalPager(
+            state = pagerState,
+            modifier = Modifier.fillMaxSize()
+        ) { page ->
+            // Contenu de chaque page
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                    modifier = Modifier.fillMaxSize()
+                        .background(MaterialTheme.colorScheme.background)
+
+                ) {
+                    val alpha by animateFloatAsState(
+                        targetValue = pageAlpha[page], // Utiliser l'alpha spécifique à la page
+                        animationSpec = tween(durationMillis = 1000)
+                    )
+                    val alpha1 by animateFloatAsState(
+                        targetValue = pageAlpha[page], // Utiliser l'alpha spécifique à la page
+                        animationSpec = tween(durationMillis = 3000)
+                    )
+                    val alphabutton by animateFloatAsState(
+                        targetValue = pageAlpha[page], // Utiliser l'alpha spécifique à la page
+                        animationSpec = tween(durationMillis = 6000)
+                    )
+
+                    when (page) {
+                        0 -> {
+                            Text(
+                                text = "Bienvenue sur Aletheia.", //à finaliser et à traduire
+                                fontSize = 30.sp,
+                                fontWeight = FontWeight.Bold,
+                                fontFamily = FontFamily.Serif,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .padding(bottom = 24.dp)
+                                    .alpha(alpha1),
+                                color = MaterialTheme.colorScheme.onBackground
+                            )
+                            Text( //à finaliser et à traduire
+                                text = "Une opportunité de participer à l'essor de l'intelligence artificielle... En étant rémunéré !",
+                                fontSize = 26.sp,
+                                fontWeight = FontWeight.Bold,
+                                fontFamily = FontFamily.Serif,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .padding(bottom = 24.dp)
+                                    .alpha(alpha1),
+                                color = MaterialTheme.colorScheme.onBackground
+                            )
+
+                        }
+                        1 -> {
+                            Text(
+                                text = "Page $page",
+                                modifier = Modifier.alpha(alpha),
+                                style = TextStyle(
+                                    fontSize = 32.sp,
+                                    fontWeight = FontWeight.Bold,
+                                ),
+                                color = MaterialTheme.colorScheme.onBackground
+                            )
+                        }
+                        2 -> {
+                            Text(
+                                text = "Page $page",
+                                modifier = Modifier.alpha(alpha),
+                                style = TextStyle(
+                                    fontSize = 32.sp,
+                                    fontWeight = FontWeight.Bold,
+                                ),
+                                color = MaterialTheme.colorScheme.onBackground
+                            )
+                        }
+                        3 -> {
+                            Text(
+                                text = "Page $page",
+                                modifier = Modifier.alpha(alpha),
+                                style = TextStyle(
+                                    fontSize = 32.sp,
+                                    fontWeight = FontWeight.Bold,
+                                ),
+                                color = MaterialTheme.colorScheme.onBackground
+                            )
+                        }
+                    }
+
+
+                    Spacer(modifier = Modifier.height(20.dp))
+                    Button(
+                        modifier = Modifier.alpha(alphabutton),
+                        onClick = {
+                            if (page < pagerState.pageCount - 1) {
+                                scope.launch {
+                                    pagerState.scrollToPage(page + 1) // Aller à la page suivante
+                                }
+                            } else {
+                                val intent = Intent(context, Init::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                                prefs.edit().putBoolean("is_first_time", false).apply()
+
+                                Log.d("is_first_time", prefs.getBoolean("is_first_time", true).toString())
+                                context.startActivity(intent)
+                                val activity = context as? Activity
+                                activity?.finish()
+
+
+                            }
+                        },
+                        shape = CircleShape,
+                    ) {
+                        Text(
+                            text = if (page == pagerState.pageCount - 1) stringResource(id = R.string.commencer) else "→",
+                            style = TextStyle(
+                                fontSize = 24.sp,
+                                fontWeight = FontWeight.Bold,
+                            )
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+
