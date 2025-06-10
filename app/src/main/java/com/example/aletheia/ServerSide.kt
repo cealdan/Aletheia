@@ -152,7 +152,7 @@ interface NAPyServerAPI {
 
 
 object RetrofitInstance {
-    const val BASE_URL = "http://192.168.10.8:8000/"
+    const val BASE_URL = "http://xxx.xxx.xx.x:8000/"
 
     private val _isNetworkAvailable = MutableStateFlow(true)
     val isNetworkAvailable: StateFlow<Boolean> = _isNetworkAvailable
