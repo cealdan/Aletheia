@@ -9,3 +9,8 @@ If you have any questions, feedback, or would like to discuss potential collabor
 Thank you for your interest and understanding.
 
 
+-------------------------------------------------------
+
+This project is shared for demonstration purposes only.
+All rights are reserved.
+Reuse, reproduction, or redistribution of any part of the code is not permitted without explicit permission from the author.
