@@ -4509,7 +4509,7 @@ fun VideoPreview(progress: Float, exoPlayer: ExoPlayer) {
 fun extractVideoFrame(positionMs: Long): Bitmap? {
     val retriever = MediaMetadataRetriever()
     // Assure-toi de définir correctement le chemin ou URI de ta vidéo
-    retriever.setDataSource("http://192.168.10.7:5000/video")
+    retriever.setDataSource("http://xxx.xxx.xx.x:5000/video")
 
     // Récupérer le frame à la position donnée (en microsecondes)
     return retriever.getFrameAtTime(positionMs * 1000, MediaMetadataRetriever.OPTION_CLOSEST)
