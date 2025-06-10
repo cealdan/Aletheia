@@ -2226,7 +2226,7 @@ fun FullScreenContent(profileViewModel: ProfileViewModel, globalViewModel: Globa
 
 
     /* Fait lagguer
-    val videoPath = "http://192.168.10.7:5000/video"
+    val videoPath = "http://xxx.xxx.xx.x:5000/video"
     val (width, height) = getVideoDimensions(videoPath)
 
     val aspectRatio = screenWidth / height.toFloat()
