@@ -1,0 +1,7 @@
+Copyright (c) 2025 Dimitri (cealdan.dev@gmail.com)
+
+All rights reserved.
+
+This source code and any associated files are not licensed for use, distribution, reproduction, or modification, in whole or in part, without the express written permission of the copyright holder.
+
+Unauthorized use is strictly prohibited.
