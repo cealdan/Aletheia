@@ -1,4 +1,4 @@
-Copyright (c) 2025 Dimitri (cealdan.dev@gmail.com)
+Copyright (c) 2025 cealdan (cealdan.dev@gmail.com)
 
 All rights reserved.
 
